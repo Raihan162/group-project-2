@@ -1,0 +1,62 @@
+{
+  "teacher": [
+    {
+      "id": "1",
+      "name": "Ms. Endang",
+      "email": "endang@example.com",
+      "password": "Password123!"
+    },
+    {
+      "id": "2",
+      "name": "Ms Soekamti",
+      "email": "soekamti@example.com",
+      "password": "Password123!"
+    },
+    {
+      "id": "3",
+      "name": "Mr Budi",
+      "email": "budi@example.com",
+      "password": "Password123!"
+    },
+    {
+      "id": "4",
+      "name": "Mr Doremi",
+      "email": "doremi@example.com",
+      "password": "Password123!"
+    }
+  ],
+  "student": [
+    {
+      "id": "1",
+      "teacher_id": "1",
+      "name": "Bambang",
+      "class": "12",
+      "major": "IPA",
+      "gender": "man"
+    },
+    {
+      "id": "2",
+      "teacher_id": "2",
+      "name": "Tukiman",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Man"
+    },
+    {
+      "id": "3",
+      "teacher_id": "3",
+      "name": "Wendah",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Woman"
+    },
+    {
+      "id": "4",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPs",
+      "gender": "Woman"
+    }
+  ]
+}
