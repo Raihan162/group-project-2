@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types'
-
 import AllStudent from '@components/AllStudent';
 import { getAllStudent } from './actions';
 import { createStructuredSelector } from 'reselect';
