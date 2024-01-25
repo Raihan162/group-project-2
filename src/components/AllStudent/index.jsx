@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 import classes from './style.module.scss'
 import { FormattedMessage } from 'react-intl';
 
-export default function AllStudent() {
+export default function AllStudent({ dataStudents }) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -31,32 +31,18 @@ export default function AllStudent() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>1</TableCell>
-                        <TableCell>Siti</TableCell>
-                        <TableCell>10</TableCell>
-                        <TableCell>Dewi</TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell>1</TableCell>
-                        <TableCell>Siti</TableCell>
-                        <TableCell>10</TableCell>
-                        <TableCell>Dewi</TableCell>
-                    </TableRow>
-                    {/* {rows.map((row) => (
-                        <TableRow
-                            key={row.name}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell align="right">{row.calories}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
-                        </TableRow>
-                    ))} */}
+                    {
+                        dataStudents?.map((data, index) => {
+                            return (
+                                <TableRow>
+                                    <TableCell>{data?.id}</TableCell>
+                                    <TableCell>Siti</TableCell>
+                                    <TableCell>10</TableCell>
+                                    <TableCell>Dewi</TableCell>
+                                </TableRow>
+                            )
+                        })
+                    }
                 </TableBody>
             </Table>
         </TableContainer>

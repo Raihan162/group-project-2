@@ -1,24 +1,34 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types'
 
 import AllStudent from '@components/AllStudent';
 import { getAllStudent } from './actions';
+import { createStructuredSelector } from 'reselect';
+import { selectStudent } from './selectors';
 
-const Home = () => {
+const Home = ({ students }) => {
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(ping());
     dispatch(getAllStudent())
   }, [dispatch]);
 
   return (
     <div>
-      <AllStudent />
-      {/* <FormattedMessage id="app_greeting" /> */}
+      <AllStudent dataStudents={students} />
     </div>
   );
 };
 
-export default Home;
+Home.PropTypes = {
+  students: PropTypes.array
+}
+
+const mapStateToProps = createStructuredSelector({
+  students: selectStudent
+})
+
+export default connect(mapStateToProps)(Home);
