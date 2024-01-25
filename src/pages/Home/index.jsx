@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
 import { ping } from '@containers/App/actions';
+import AllStudent from '@components/AllStudent';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,8 @@ const Home = () => {
 
   return (
     <div>
-      <FormattedMessage id="app_greeting" />
+      <AllStudent />
+      {/* <FormattedMessage id="app_greeting" /> */}
     </div>
   );
 };
