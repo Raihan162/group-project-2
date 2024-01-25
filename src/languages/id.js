@@ -7,4 +7,9 @@ export default {
   app_popup_error_title: 'Terjadi kesalahan!',
   app_popup_error_message: 'Maaf, telah terjadi kesalahan. Silakan coba beberapa saat lagi',
   app_popup_close_button_label: 'Tutup',
+
+  table_no: "No",
+  table_student_name: "Nama Siswa/i",
+  table_class: "Kelas",
+  table_teacher: "Pengajar"
 };
