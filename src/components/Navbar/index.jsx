@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect,useDispatch } from 'react-redux';
 // import { useNavigate } from 'react-router-dom';
 import { setLocale, setTheme } from '@containers/App/actions';
 
@@ -30,6 +30,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import classes from './style.module.scss';
+
+import { selectLogin, selectData } from '@pages/Login/selectors';
+import { createStructuredSelector } from 'reselect';
+import { setData, setLogin } from '@pages/Login/actions';
 
 const drawerWidth = 240;
 
@@ -76,6 +80,11 @@ const Navbar = ({ locale, theme, children }) => {
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
+  const handleLogout = () => {
+    dispatch(setLogin(false));
+    dispatch(setData({}));
+  };
+
   const drawer = (
     <div>
       <Toolbar />
@@ -101,7 +110,7 @@ const Navbar = ({ locale, theme, children }) => {
         </ListItem>
       </List>
       <Divider />
-      <List>
+      <List onClick={handleLogout}>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
@@ -213,5 +222,7 @@ Navbar.propTypes = {
   theme: PropTypes.string,
   children: PropTypes.element.isRequired,
 };
+
+
 
 export default Navbar;
