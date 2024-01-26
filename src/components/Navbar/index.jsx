@@ -18,6 +18,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
@@ -30,12 +31,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import classes from './style.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 const Navbar = ({ locale, theme, children }) => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
@@ -76,13 +78,35 @@ const Navbar = ({ locale, theme, children }) => {
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
+  const toAllStudent = () => {
+    navigate('/all-student')
+  }
+
+  const toMyStudent = () => {
+    navigate('/my-student')
+  }
+
+  const toEnrollStudent = () => {
+    navigate('/enroll-student')
+  }
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => toAllStudent()}>
+            <ListItemIcon>
+              <GroupsIcon />
+            </ListItemIcon>
+            <ListItemText primary="All Student" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => toMyStudent()}>
             <ListItemIcon>
               <PeopleAltIcon />
             </ListItemIcon>
@@ -92,11 +116,11 @@ const Navbar = ({ locale, theme, children }) => {
       </List>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => toEnrollStudent()}>
             <ListItemIcon>
-              <GroupsIcon />
+              <PersonAddIcon />
             </ListItemIcon>
-            <ListItemText primary="All Student" />
+            <ListItemText primary="Enroll Student" />
           </ListItemButton>
         </ListItem>
       </List>

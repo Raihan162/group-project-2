@@ -27,7 +27,15 @@
   ],
   "student": [
     {
-      "id": "1",
+      "id": "4",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "5",
       "teacher_id": "1",
       "name": "Bambang",
       "class": "12",
@@ -35,7 +43,39 @@
       "gender": "man"
     },
     {
-      "id": "2",
+      "id": "8",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "9",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "10",
+      "teacher_id": "1",
+      "name": "Bambang",
+      "class": "12",
+      "major": "IPA",
+      "gender": "man"
+    },
+    {
+      "id": "13",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "11",
       "teacher_id": "2",
       "name": "Tukiman",
       "class": "12",
@@ -43,7 +83,7 @@
       "gender": "Man"
     },
     {
-      "id": "3",
+      "id": "12",
       "teacher_id": "3",
       "name": "Wendah",
       "class": "12",
@@ -51,11 +91,43 @@
       "gender": "Woman"
     },
     {
-      "id": "4",
+      "id": "12",
+      "teacher_id": "3",
+      "name": "Wendah",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Woman"
+    },
+    {
+      "id": "12",
+      "teacher_id": "3",
+      "name": "Wendah",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Woman"
+    },
+    {
+      "id": "13",
       "teacher_id": "4",
       "name": "Sari",
       "class": "12",
-      "major": "IPs",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "14",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "18",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
       "gender": "Woman"
     }
   ]
