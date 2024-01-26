@@ -18,6 +18,7 @@ import { selectMyStudent } from './selectors';
 
 import classes from './style.module.scss'
 import { Box, Button, Modal, Stack, Typography } from '@mui/material';
+import { selectData } from '@pages/Login/selectors';
 
 const style = {
   position: 'absolute',
@@ -31,8 +32,9 @@ const style = {
   p: 4,
 };
 
-const MyStudent = ({ myStudents }) => {
+const MyStudent = ({ myStudents, data }) => {
 
+  // console.log(data)
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(false)
 
@@ -43,15 +45,15 @@ const MyStudent = ({ myStudents }) => {
     setIdStudent(id)
   }
 
-  console.log(myStudents)
+  // console.log(myStudents)
 
   const handleDelete = () => {
-    dispatch(setDeleteMyStudent(idStudent, () => { dispatch(getMyStudents('3')) }))
+    dispatch(setDeleteMyStudent(idStudent, () => { dispatch(getMyStudents(data[0]?.id)) }))
 
   }
 
   useEffect(() => {
-    dispatch(getMyStudents('3'))
+    dispatch(getMyStudents(data[0]?.id))
   }, []);
 
   return (
@@ -139,11 +141,13 @@ const MyStudent = ({ myStudents }) => {
 };
 
 MyStudent.propTypes = {
-  myStudents: PropTypes.array
+  myStudents: PropTypes.array,
+  data: PropTypes.array
 }
 
 const mapStateToProps = createStructuredSelector({
-  myStudents: selectMyStudent
+  myStudents: selectMyStudent,
+  data: selectData
 })
 
 export default connect(mapStateToProps)(MyStudent);

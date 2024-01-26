@@ -8,7 +8,7 @@ function* getAllStudentSaga() {
     yield put(setLoading(true))
     try {
         const response = yield call(getStudents)
-        // console.log(response)
+        console.log(response)
         yield put(setAllStudendt(response))
     } catch (error) {
         console.log(error)

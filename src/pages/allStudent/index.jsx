@@ -16,25 +16,27 @@ import Paper from '@mui/material/Paper';
 import { getStudentsPerPage } from '@domain/api';
 
 import classes from './style.module.scss'
+import { selectData } from '@pages/Login/selectors';
 
-const allStudent = ({ students, pages, pageStudent }) => {
+const allStudent = ({ students, pages, pageStudent, data }) => {
+  // console.log(Number(data[0]?.id))
+  console.log(pages)
 
   const dispatch = useDispatch();
   const [pagesAll, setPagesAll] = useState(pages)
-  console.log(pageStudent)
-  console.log(pages)
 
   useEffect(() => {
-    // dispatch(getAllStudent())
+    dispatch(getAllStudent())
     // totalPage()
   }, []);
 
   useEffect(() => {
-    dispatch(getAllStudentPage(1))
+    dispatch(getAllStudentPage(Number(data[0]?.id)))
     totalPage()
   }, [dispatch])
 
   const totalPage = () => {
+    console.log(Math.ceil(students.length / 10))
     setPagesAll(Math.ceil(students.length / 10))
   }
 
@@ -91,13 +93,15 @@ const allStudent = ({ students, pages, pageStudent }) => {
 allStudent.propTypes = {
   students: PropTypes.array,
   page: PropTypes.int,
-  pageStudent: PropTypes.array
+  pageStudent: PropTypes.array,
+  selectData: PropTypes.array
 }
 
 const mapStateToProps = createStructuredSelector({
   students: selectStudent,
   page: selectPage,
-  pageStudent: selectPageStudent
+  pageStudent: selectPageStudent,
+  data: selectData
 })
 
 export default connect(mapStateToProps)(allStudent);

@@ -27,15 +27,15 @@ import PropTypes from 'prop-types';
 
 const defaultTheme = createTheme();
 
-const Login = ({login}) => {
+const Login = ({ login }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() =>{
+  useEffect(() => {
     if (login) {
-      navigate("/");
+      navigate("/all-student");
     }
-  },[login])
+  }, [login])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +50,7 @@ const Login = ({login}) => {
       toast.error('Invalid email');
     } else if (!dataUser.password) {
       toast.error('Password cannot be empty');
-    }else {
+    } else {
       dispatch(
         doLoginAction(dataUser, () => {
           toast.success('Login success');
