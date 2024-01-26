@@ -8,6 +8,7 @@ function* getMyStudentSaga({ id }) {
     yield put(setLoading(true))
     try {
         const response = yield call(getMyStudent, id)
+        console.log(response, '<<< GET MY')
         yield put(setMyStudent(response))
     } catch (error) {
         console.log(error)
@@ -15,11 +16,12 @@ function* getMyStudentSaga({ id }) {
     yield put(setLoading(false))
 }
 
-function* deleteStudentSaga({ id }) {
+function* deleteStudentSaga({ id, callback }) {
     yield put(setLoading(true))
     try {
         // console.log(id)
         yield call(deleteMyStudent, id)
+        callback && callback()
     } catch (error) {
         console.log(error)
     }

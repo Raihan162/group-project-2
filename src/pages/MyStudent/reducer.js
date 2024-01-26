@@ -17,9 +17,9 @@ const myStudentReducer = (state = initialState, action) =>
             case SET_MY_STUDENT:
                 draft.myStudents = action.data
                 break;
-            case SET_DELETE_MY_STUDENT:
-                draft.myStudents = action.id
-                break;
+            // case SET_DELETE_MY_STUDENT:
+            //     draft.myStudents = action.id
+            //     break;
             default:
                 break;
         }

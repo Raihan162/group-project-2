@@ -12,7 +12,7 @@ import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-import { getMyStudent } from '@domain/api';
+
 import { getMyStudents, setDeleteMyStudent } from './actions';
 import { selectMyStudent } from './selectors';
 
@@ -43,13 +43,15 @@ const MyStudent = ({ myStudents }) => {
     setIdStudent(id)
   }
 
+  console.log(myStudents)
+
   const handleDelete = () => {
-    dispatch(setDeleteMyStudent(idStudent))
-    dispatch(getMyStudents('2'))
+    dispatch(setDeleteMyStudent(idStudent, () => { dispatch(getMyStudents('3')) }))
+
   }
 
   useEffect(() => {
-    dispatch(getMyStudents('2'))
+    dispatch(getMyStudents('3'))
   }, []);
 
   return (
@@ -78,7 +80,7 @@ const MyStudent = ({ myStudents }) => {
           <TableBody>
             {
               myStudents ?
-                myStudents.map((data, index) => {
+                myStudents?.map((data, index) => {
                   return (
                     <TableRow key={index}>
                       <TableCell>

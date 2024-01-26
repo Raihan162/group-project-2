@@ -10,7 +10,8 @@ export const setMyStudent = (data) => ({
     data
 })
 
-export const setDeleteMyStudent = (id) => ({
+export const setDeleteMyStudent = (id, callback) => ({
     type: SET_DELETE_MY_STUDENT,
-    id
+    id,
+    callback
 })

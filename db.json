@@ -27,14 +27,6 @@
   ],
   "student": [
     {
-      "id": "3",
-      "teacher_id": "3",
-      "name": "Wendah",
-      "class": "12",
-      "major": "IPA",
-      "gender": "Woman"
-    },
-    {
       "id": "4",
       "teacher_id": "4",
       "name": "Sari",
@@ -49,14 +41,6 @@
       "class": "12",
       "major": "IPA",
       "gender": "man"
-    },
-    {
-      "id": "7",
-      "teacher_id": "3",
-      "name": "Wendah",
-      "class": "12",
-      "major": "IPA",
-      "gender": "Woman"
     },
     {
       "id": "8",
@@ -83,6 +67,14 @@
       "gender": "man"
     },
     {
+      "id": "13",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
       "id": "11",
       "teacher_id": "2",
       "name": "Tukiman",
@@ -99,20 +91,12 @@
       "gender": "Woman"
     },
     {
-      "id": "13",
-      "teacher_id": "4",
-      "name": "Sari",
+      "id": "12",
+      "teacher_id": "3",
+      "name": "Wendah",
       "class": "12",
-      "major": "IPS",
+      "major": "IPA",
       "gender": "Woman"
-    },
-    {
-      "id": "11",
-      "teacher_id": "2",
-      "name": "Tukiman",
-      "class": "12",
-      "major": "IPS",
-      "gender": "Man"
     },
     {
       "id": "12",
@@ -136,22 +120,6 @@
       "name": "Sari",
       "class": "12",
       "major": "IPS",
-      "gender": "Woman"
-    },
-    {
-      "id": "16",
-      "teacher_id": "2",
-      "name": "Tukiman",
-      "class": "12",
-      "major": "IPS",
-      "gender": "Man"
-    },
-    {
-      "id": "15",
-      "teacher_id": "3",
-      "name": "Wendah",
-      "class": "12",
-      "major": "IPA",
       "gender": "Woman"
     },
     {
