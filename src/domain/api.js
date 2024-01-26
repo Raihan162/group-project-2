@@ -11,7 +11,7 @@ const urls = {
   updateStudent: 'student',
   getStudents: 'student',
   register: 'teacher',
-  login: 'teacher/',
+  login: 'teacher',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {

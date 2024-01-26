@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { connect,useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import { setLocale, setTheme } from '@containers/App/actions';
 
 import * as React from 'react';
@@ -37,7 +36,6 @@ import logo from '../../assets/logo.png';
 import { selectLogin, selectData } from '@pages/Login/selectors';
 import { createStructuredSelector } from 'reselect';
 import { setData, setLogin } from '@pages/Login/actions';
-import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 

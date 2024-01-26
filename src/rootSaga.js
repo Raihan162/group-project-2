@@ -10,5 +10,5 @@ import registerSaga from '@pages/Register/saga';
 import loginSaga from '@pages/Login/saga';
 
 export default function* rootSaga() {
-  yield all([appSaga(), homeSaga(), myStudentSaga(), allStudentSaga(), enrollSaga(), modifySaga()]);
+  yield all([appSaga(), homeSaga(),loginSaga(),registerSaga(), myStudentSaga(), allStudentSaga(), enrollSaga(), modifySaga()]);
 }
