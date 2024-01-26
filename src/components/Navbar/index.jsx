@@ -16,9 +16,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -30,12 +30,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import classes from './style.module.scss';
+import logo from '../../assets/logo.png';
 
 const drawerWidth = 240;
 
 const Navbar = ({ locale, theme, children }) => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
 
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
@@ -86,7 +86,8 @@ const Navbar = ({ locale, theme, children }) => {
             <ListItemIcon>
               <PeopleAltIcon />
             </ListItemIcon>
-            <ListItemText primary="My Student" />
+            {/* <ListItemText primary="My Student" /> */}
+            <FormattedMessage id="nav_my_student" />
           </ListItemButton>
         </ListItem>
       </List>
@@ -96,10 +97,22 @@ const Navbar = ({ locale, theme, children }) => {
             <ListItemIcon>
               <GroupsIcon />
             </ListItemIcon>
-            <ListItemText primary="All Student" />
+            <FormattedMessage id="nav_my_student" />
           </ListItemButton>
         </ListItem>
-      </List>
+      </List>{' '}
+      <Link to="/enroll">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <HowToRegIcon />
+              </ListItemIcon>
+              <FormattedMessage id="nav_enroll_student" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Link>
       <Divider />
       <List>
         <ListItem disablePadding>
@@ -108,7 +121,7 @@ const Navbar = ({ locale, theme, children }) => {
               <ExitToAppIcon />
             </ListItemIcon>
 
-            <ListItemText primary="Log out" />
+            <FormattedMessage id="logout" />
           </ListItemButton>
         </ListItem>
       </List>
@@ -136,9 +149,12 @@ const Navbar = ({ locale, theme, children }) => {
             <MenuIcon />
           </IconButton>
           <Box className={classes.headerWrapper}>
-            <Typography variant="h6" noWrap component="div">
-              Responsive drawer
-            </Typography>
+            <Box className={classes.header}>
+              <img src={logo} alt="" width={40} />
+              <Typography variant="h6" noWrap component="div">
+                PHINCON ACADEMY
+              </Typography>
+            </Box>
             <div className={classes.contentWrapper}>
               <div className={classes.toolbar}>
                 <div className={classes.theme} onClick={handleTheme} data-testid="toggleTheme">

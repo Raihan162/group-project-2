@@ -1,0 +1,51 @@
+@import '@styles/base';
+
+.form-container {
+  background-color: $color-card-background;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+
+    .error {
+      @include error-validation;
+    }
+
+    input,
+    select {
+      border: none;
+      height: 50px;
+      padding-left: 10px;
+      outline-color: $color-primary-header;
+      border-radius: 5px;
+    }
+
+    label {
+      font-weight: 500;
+      font-family: Poppins;
+    }
+
+    .radio-wrapper {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      .radio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logo {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: end;
+  }
+}

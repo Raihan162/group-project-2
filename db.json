@@ -32,15 +32,15 @@
       "name": "Bambang",
       "class": "12",
       "major": "IPA",
-      "gender": "man"
+      "gender": "Male"
     },
     {
       "id": "2",
       "teacher_id": "2",
-      "name": "Tukiman",
-      "class": "12",
+      "name": "rakhmini",
+      "class": "XI",
       "major": "IPS",
-      "gender": "Man"
+      "gender": "Female"
     },
     {
       "id": "3",
@@ -48,7 +48,7 @@
       "name": "Wendah",
       "class": "12",
       "major": "IPA",
-      "gender": "Woman"
+      "gender": "Female"
     },
     {
       "id": "4",
@@ -56,7 +56,31 @@
       "name": "Sari",
       "class": "12",
       "major": "IPs",
-      "gender": "Woman"
+      "gender": "Female"
+    },
+    {
+      "id": "5",
+      "teacher_id": "1",
+      "name": "Sulaiman",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Male"
+    },
+    {
+      "id": "005e",
+      "teacher_id": "1",
+      "name": "test",
+      "class": "XI",
+      "major": "IPA",
+      "gender": "IPA"
+    },
+    {
+      "id": "c5aa",
+      "teacher_id": "1",
+      "name": "test",
+      "class": "XI",
+      "major": "IPA",
+      "gender": "IPA"
     }
   ]
 }
