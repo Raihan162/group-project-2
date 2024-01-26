@@ -11,17 +11,32 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import { doLoginAction } from './actions';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
+import { createStructuredSelector } from 'reselect';
+
+import { useEffect } from 'react';
+import { selectLogin } from './selectors';
+
+import PropTypes from 'prop-types';
+
+
 const defaultTheme = createTheme();
 
-export default function Login() {
+const Login = ({login}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() =>{
+    if (login) {
+      navigate("/");
+    }
+  },[login])
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -29,13 +44,25 @@ export default function Login() {
       email: data.get('email'),
       password: data.get('password'),
     };
-    // console.log(dataUser);
-    dispatch(
-      doLoginAction(dataUser, () => {
-        toast.success('Login success');
-        navigate('/');
-      })
-    );
+    if (!dataUser.email) {
+      toast.error('Email cannot be empty');
+    } else if (!isValidEmail(dataUser.email)) {
+      toast.error('Invalid email');
+    } else if (!dataUser.password) {
+      toast.error('Password cannot be empty');
+    }else {
+      dispatch(
+        doLoginAction(dataUser, () => {
+          toast.success('Login success');
+          navigate('/');
+        })
+      );
+    }
+  };
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   return (
@@ -48,7 +75,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
+            backgroundImage: 'url(https://media.istockphoto.com/id/1415740411/photo/empty-classroom.webp?b=1&s=170667a&w=0&k=20&c=K6V85ko0dwzThxpPRW942vz30r_Mpl6iL_zMAKVxid8=)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
             backgroundSize: 'cover',
@@ -96,13 +123,8 @@ export default function Login() {
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/register" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
@@ -111,6 +133,17 @@ export default function Login() {
           </Box>
         </Grid>
       </Grid>
+      <Toaster />
     </ThemeProvider>
   );
 }
+
+Login.propTypes = {
+  login: PropTypes.bool
+};
+
+const mapStateToProps = createStructuredSelector({
+  login: selectLogin,
+});
+
+export default connect(mapStateToProps)(Login);

@@ -34,12 +34,13 @@ import classes from './style.module.scss';
 import { selectLogin, selectData } from '@pages/Login/selectors';
 import { createStructuredSelector } from 'reselect';
 import { setData, setLogin } from '@pages/Login/actions';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 const Navbar = ({ locale, theme, children }) => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
@@ -83,6 +84,7 @@ const Navbar = ({ locale, theme, children }) => {
   const handleLogout = () => {
     dispatch(setLogin(false));
     dispatch(setData({}));
+    navigate('/login');
   };
 
   const drawer = (

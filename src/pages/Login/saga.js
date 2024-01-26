@@ -1,24 +1,30 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { login } from '@domain/api';
-import { setLoading } from '@containers/App/actions';
+import { setLoading, showPopup } from '@containers/App/actions';
 import { DO_LOGIN } from './constants';
 import { setData, setLogin } from './actions';
 
-function* doLogin({formData, cb}) {
-    setLoading(true);
-    try {
-      const response = yield call(login, formData);
-      console.log(response)
-      yield put(setLogin(true));
-      yield put(setData(response));
-      cb();
-    } catch (error) {
-      console.log(error);
+import toast, { Toaster } from 'react-hot-toast';
+
+function* doLogin({ formData, cb }) {
+  setLoading(true);
+  try {
+    const res = yield call(login, formData);
+    console.log(res, 'res');
+    if (res.length === 0) {
+      toast.error("Username dan password tidak sama");
+      return;
     }
-    setLoading(false);
+    yield put(setLogin(true));
+    yield put(setData(res));
+    yield put(showPopup("app_login_success","app_login_success_desc"));
+    cb();
+  } catch (error) {
+    console.log(error);
   }
-  
-  export default function* loginSaga() {
-    yield takeLatest(DO_LOGIN, doLogin);
-  }
-  
+  setLoading(false);
+}
+
+export default function* loginSaga() {
+  yield takeLatest(DO_LOGIN, doLogin);
+}

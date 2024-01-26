@@ -11,17 +11,28 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch,connect } from 'react-redux';
 import { setUser } from './actions';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
+import { selectLogin } from '@pages/Login/selectors';
+import { useEffect } from 'react';
+
+import PropTypes from 'prop-types';
 
 const defaultTheme = createTheme();
 
-export default function Register() {
+const Register = ({login}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() =>{
+    if (login) {
+      navigate("/");
+    }
+  },[login])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -112,3 +123,13 @@ export default function Register() {
     </ThemeProvider>
   );
 }
+
+Register.propTypes = {
+  login: PropTypes.bool
+};
+
+const mapStateToProps = createStructuredSelector({
+  login: selectLogin,
+});
+
+export default connect(mapStateToProps)(Register);
