@@ -22,8 +22,12 @@
   align-items: center;
 
   img {
-    width: 500px;
     margin-top: 150px;
+
+    width: 200px;
+    @include apply-at-lg-size {
+      width: 500px;
+    }
   }
 
   h1 {

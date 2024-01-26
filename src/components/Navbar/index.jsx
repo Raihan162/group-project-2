@@ -18,7 +18,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -36,6 +38,7 @@ const drawerWidth = 240;
 
 const Navbar = ({ locale, theme, children }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
@@ -76,13 +79,35 @@ const Navbar = ({ locale, theme, children }) => {
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
+  const toAllStudent = () => {
+    navigate('/all-student');
+  };
+
+  const toMyStudent = () => {
+    navigate('/my-student');
+  };
+
+  const toEnrollStudent = () => {
+    navigate('/enroll-student');
+  };
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => toAllStudent()}>
+            <ListItemIcon>
+              <GroupsIcon />
+            </ListItemIcon>
+            <FormattedMessage id="nav_all_student" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => toMyStudent()}>
             <ListItemIcon>
               <PeopleAltIcon />
             </ListItemIcon>
@@ -93,9 +118,9 @@ const Navbar = ({ locale, theme, children }) => {
       </List>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => toEnrollStudent()}>
             <ListItemIcon>
-              <GroupsIcon />
+              <PersonAddIcon />
             </ListItemIcon>
             <FormattedMessage id="nav_my_student" />
           </ListItemButton>
