@@ -5,6 +5,10 @@ import request from '@utils/request';
 
 const urls = {
   // ping: 'ping.json',
+  allTeacher: 'teacher',
+  createStudent: 'student',
+  studentDetail: 'student',
+  updateStudent: 'student',
   getStudents: 'student',
 };
 
@@ -28,20 +32,17 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
   });
 };
 
-// export const ping = () => callAPI(urls.ping, 'get');
+export const ping = () => callAPI(urls.ping, 'GET');
+export const getTeacher = () => callAPI(urls.allTeacher, 'GET');
+export const getStudentDetail = (id) => callAPI(`${urls.studentDetail}/${id}`, 'GET');
 
-export const getStudents = () => {
-  return callAPI(urls.getStudents, 'GET')
-}
+export const createStudent = (studentData) => callAPI(urls.createStudent, 'POST', {}, {}, studentData);
+export const updateStudent = (id, studentData) => callAPI(`${urls.updateStudent}/${id}`, 'PATCH', {}, {}, studentData);
 
-export const getStudentsPerPage = (page) => {
-  return callAPI(urls.getStudents, 'GET', {}, { _page: page })
-}
+export const getStudents = () => callAPI(urls.getStudents, 'GET');
 
-export const getMyStudent = (id) => {
-  return callAPI(urls.getStudents, 'GET', {}, { teacher_id: id })
-}
+export const getStudentsPerPage = (page) => callAPI(urls.getStudents, 'GET', {}, { _page: page });
 
-export const deleteMyStudent = (id) => {
-  return callAPI(`${urls.getStudents}/${id}`, 'DELETE')
-}
+export const getMyStudent = (id) => callAPI(urls.getStudents, 'GET', {}, { teacher_id: id });
+
+export const deleteMyStudent = (id) => callAPI(`${urls.getStudents}/${id}`, 'DELETE');

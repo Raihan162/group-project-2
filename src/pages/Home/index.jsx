@@ -1,29 +1,25 @@
-import { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
-import PropTypes from 'prop-types'
-import { createStructuredSelector } from 'reselect';
+import Typewriter from 'typewriter-effect';
+import { Box } from '@mui/material';
+import NavHome from './components/Navbar';
+import classes from './style.module.scss';
+import banner from '../../assets/banner.png';
 
-const Home = ({ students }) => {
+const Home = () => (
+  <div>
+    <NavHome />
+    <Box className={classes.container}>
+      <img src={banner} alt="" />
+      <h1>
+        <Typewriter
+          options={{
+            strings: ['Welcome To Phincon Academy', 'We Produce the Best Digital Talent'],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+      </h1>
+    </Box>
+  </div>
+);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    // dispatch(getAllStudent())
-  }, [dispatch]);
-
-  return (
-    <div className=''>
-    </div>
-  );
-};
-
-Home.propTypes = {
-
-}
-
-const mapStateToProps = createStructuredSelector({
-
-})
-
-export default connect(mapStateToProps)(Home);
+export default Home;
