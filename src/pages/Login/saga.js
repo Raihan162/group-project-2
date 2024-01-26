@@ -12,12 +12,12 @@ function* doLogin({ formData, cb }) {
     const res = yield call(login, formData);
     console.log(res, 'res');
     if (res.length === 0) {
-      toast.error("Username dan password tidak sama");
+      toast.error("Username atau password salah");
       return;
     }
     yield put(setLogin(true));
     yield put(setData(res));
-    yield put(showPopup("app_login_success","app_login_success_desc"));
+    yield put(showPopup("app_login_success", "app_login_success_desc"));
     cb();
   } catch (error) {
     console.log(error);

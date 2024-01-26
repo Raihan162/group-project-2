@@ -23,6 +23,12 @@
       "name": "Mr Doremi",
       "email": "doremi@example.com",
       "password": "Password123!"
+    },
+    {
+      "name": "fauzi",
+      "email": "fauzi@gmail.com",
+      "password": "fauzi1234",
+      "id": "PW_kcOG"
     }
   ],
   "student": [
@@ -64,22 +70,6 @@
       "name": "Wendah",
       "class": "12",
       "major": "IPA",
-      "gender": "Woman"
-    },
-    {
-      "id": "12",
-      "teacher_id": "3",
-      "name": "Wendah",
-      "class": "12",
-      "major": "IPA",
-      "gender": "Woman"
-    },
-    {
-      "id": "12",
-      "teacher_id": "3",
-      "name": "Wendah",
-      "class": "12",
-      "major": "IPA",
       "gender": "Female"
     },
     {
@@ -185,6 +175,22 @@
       "class": "12",
       "major": "IPs",
       "gender": "Woman"
+    },
+    {
+      "teacher_id": "PW_kcOG",
+      "name": "rafi",
+      "class": "Intership",
+      "major": "Android Kotlin",
+      "gender": "Android Kotlin",
+      "id": "p6zWcV9"
+    },
+    {
+      "teacher_id": "PW_kcOG",
+      "name": "aka",
+      "class": "Trainee",
+      "major": "Fullstack Javascript",
+      "gender": "Fullstack Javascript",
+      "id": "BBUPGP8"
     }
   ]
 }
