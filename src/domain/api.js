@@ -51,6 +51,4 @@ export const deleteMyStudent = (id) => callAPI(`${urls.getStudents}/${id}`, 'DEL
 
 export const registerUser = (user) => callAPI(urls.register, 'POST', {}, {}, user);
 
-export const login = ({ email, password }) => {
-  return callAPI(urls.login, 'GET', {}, { email: email, password: password }, {});
-};
+export const login = ({ email, password }) => callAPI(urls.login, 'GET', {}, { email, password }, {});
