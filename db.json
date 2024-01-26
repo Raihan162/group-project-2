@@ -55,7 +55,103 @@
       "teacher_id": "4",
       "name": "Sari",
       "class": "12",
-      "major": "IPs",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "5",
+      "teacher_id": "1",
+      "name": "Bambang",
+      "class": "12",
+      "major": "IPA",
+      "gender": "man"
+    },
+    {
+      "id": "6",
+      "teacher_id": "2",
+      "name": "Tukiman",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Man"
+    },
+    {
+      "id": "7",
+      "teacher_id": "3",
+      "name": "Wendah",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Woman"
+    },
+    {
+      "id": "8",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "9",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "10",
+      "teacher_id": "1",
+      "name": "Bambang",
+      "class": "12",
+      "major": "IPA",
+      "gender": "man"
+    },
+    {
+      "id": "11",
+      "teacher_id": "2",
+      "name": "Tukiman",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Man"
+    },
+    {
+      "id": "12",
+      "teacher_id": "3",
+      "name": "Wendah",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Woman"
+    },
+    {
+      "id": "13",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Woman"
+    },
+    {
+      "id": "11",
+      "teacher_id": "2",
+      "name": "Tukiman",
+      "class": "12",
+      "major": "IPS",
+      "gender": "Man"
+    },
+    {
+      "id": "12",
+      "teacher_id": "3",
+      "name": "Wendah",
+      "class": "12",
+      "major": "IPA",
+      "gender": "Woman"
+    },
+    {
+      "id": "13",
+      "teacher_id": "4",
+      "name": "Sari",
+      "class": "12",
+      "major": "IPS",
       "gender": "Woman"
     }
   ]

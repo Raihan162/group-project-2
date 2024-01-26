@@ -26,7 +26,7 @@ export default function AllStudent({ dataStudents }) {
                             <FormattedMessage id="table_class" />
                         </TableCell>
                         <TableCell>
-                            <FormattedMessage id="table_teacher" />
+                            <FormattedMessage id="table_major" />
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -34,11 +34,11 @@ export default function AllStudent({ dataStudents }) {
                     {
                         dataStudents?.map((data, index) => {
                             return (
-                                <TableRow>
-                                    <TableCell>{data?.id}</TableCell>
-                                    <TableCell>Siti</TableCell>
-                                    <TableCell>10</TableCell>
-                                    <TableCell>Dewi</TableCell>
+                                <TableRow key={index}>
+                                    <TableCell>{index + 1}</TableCell>
+                                    <TableCell>{data?.name}</TableCell>
+                                    <TableCell>{data?.class}</TableCell>
+                                    <TableCell>{data?.major}</TableCell>
                                 </TableRow>
                             )
                         })

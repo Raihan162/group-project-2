@@ -11,5 +11,7 @@ export default {
   table_no: "No",
   table_student_name: "Nama Siswa/i",
   table_class: "Kelas",
-  table_teacher: "Pengajar"
+  table_major: 'Jurusan',
+  table_teacher: "Pengajar",
+  table_none_student: "Tidak ada siswa."
 };

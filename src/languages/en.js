@@ -11,5 +11,7 @@ export default {
   table_no: "No",
   table_student_name: "Student Name",
   table_class: "Class",
-  table_teacher: "Teacher"
+  table_major: 'Major',
+  table_teacher: "Teacher",
+  table_none_student: "Student doesn't exist"
 };

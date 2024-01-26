@@ -30,12 +30,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
 import classes from './style.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
 const Navbar = ({ locale, theme, children }) => {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
@@ -76,27 +77,35 @@ const Navbar = ({ locale, theme, children }) => {
     dispatch(setTheme(theme === 'light' ? 'dark' : 'light'));
   };
 
+  const toAllStudent = () => {
+    navigate('/all-student')
+  }
+
+  const toMyStudent = () => {
+    navigate('/my-student')
+  }
+
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => toAllStudent()}>
             <ListItemIcon>
-              <PeopleAltIcon />
+              <GroupsIcon />
             </ListItemIcon>
-            <ListItemText primary="My Student" />
+            <ListItemText primary="All Student" />
           </ListItemButton>
         </ListItem>
       </List>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => toMyStudent()}>
             <ListItemIcon>
-              <GroupsIcon />
+              <PeopleAltIcon />
             </ListItemIcon>
-            <ListItemText primary="All Student" />
+            <ListItemText primary="My Student" />
           </ListItemButton>
         </ListItem>
       </List>

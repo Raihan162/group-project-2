@@ -16,6 +16,6 @@ function* getAllStudentSaga() {
     yield put(setLoading(false))
 }
 
-export default function* homeSaga() {
+export default function* allStudentSaga() {
     yield takeLatest(GET_ALL_STUDENT, getAllStudentSaga)
 }

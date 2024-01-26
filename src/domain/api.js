@@ -5,7 +5,7 @@ import request from '@utils/request';
 
 const urls = {
   // ping: 'ping.json',
-  getStudents: 'student'
+  getStudents: 'student',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -32,4 +32,8 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 
 export const getStudents = () => {
   return callAPI(urls.getStudents, 'GET')
+}
+
+export const getMyStudent = (id) => {
+  return callAPI(urls.getStudents, 'GET', {}, { teacher_id: id })
 }

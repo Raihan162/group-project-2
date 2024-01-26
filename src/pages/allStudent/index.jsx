@@ -8,28 +8,27 @@ import { createStructuredSelector } from 'reselect';
 import { selectStudent } from './selectors';
 import { Pagination } from '@mui/material';
 
-const Home = ({ students }) => {
+const allStudent = ({ students }) => {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getAllStudent())
+    dispatch(getAllStudent())
   }, [dispatch]);
 
   return (
     <div className=''>
       <AllStudent dataStudents={students} />
-      {/* <Pagination onChange={(e) => console.log(e)} count={10} /> */}
     </div>
   );
 };
 
-Home.propTypes = {
-
+allStudent.propTypes = {
+  students: PropTypes.array
 }
 
 const mapStateToProps = createStructuredSelector({
-
+  students: selectStudent
 })
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(allStudent);
