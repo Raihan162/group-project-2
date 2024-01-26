@@ -36,4 +36,5 @@ export default {
   modal_delete_title: 'Are you sure you want to delete this student?',
   modal_yes: 'Yes',
   modal_no: 'No',
+  
 };

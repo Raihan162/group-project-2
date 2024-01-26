@@ -10,6 +10,8 @@ const urls = {
   studentDetail: 'student',
   updateStudent: 'student',
   getStudents: 'student',
+  register: 'teacher',
+  login: 'teacher',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -46,3 +48,9 @@ export const getStudentsPerPage = (page) => callAPI(urls.getStudents, 'GET', {},
 export const getMyStudent = (id) => callAPI(urls.getStudents, 'GET', {}, { teacher_id: id });
 
 export const deleteMyStudent = (id) => callAPI(`${urls.getStudents}/${id}`, 'DELETE');
+
+export const registerUser = (user) => callAPI(urls.register, 'POST', {}, {}, user);
+
+export const login = ({ email, password }) => {
+  return callAPI(urls.login, 'GET', {}, { email: email, password: password }, {});
+};

@@ -9,10 +9,14 @@ import myStudentReducer, { storedKey as storedMyStudentState } from '@pages/MySt
 import allStudentReducer, { storedKey as storedAllStudentState } from '@pages/allStudent/reducer';
 
 import { mapWithPersistor } from './persistence';
+import registerReducer,{storedKey as storedUser} from '@pages/Register/reducer';
+import loginReducer, {storedKey as storedLogin} from '@pages/Login/reducer';
 
 const storedReducers = {
   app: { reducer: appReducer, whitelist: storedAppState },
   client: { reducer: clientReducer, whitelist: storedClientState },
+  register: { reducer: registerReducer, whitelist: storedUser},
+  login: {reducer: loginReducer, whitelist: storedLogin},
   modify: { reducer: modifyReducer, whitelist: storedStudentState },
   home: { reducer: homeReducer, whitelist: storedHomeState },
   allStudent: { reducer: allStudentReducer, whitelist: storedAllStudentState },

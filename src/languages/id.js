@@ -35,4 +35,6 @@ export default {
   modal_delete_title: 'Anda yakin mau menghapus siswa ini?',
   modal_yes: 'Ya',
   modal_no: 'Tidak',
+  app_login_success: 'Berhasil',
+  app_login_success_desc: 'Login Berhasil',
 };
