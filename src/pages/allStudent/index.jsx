@@ -18,12 +18,12 @@ import { getStudentsPerPage } from '@domain/api';
 import classes from './style.module.scss'
 import { selectData } from '@pages/Login/selectors';
 
-const allStudent = ({ students, pages, pageStudent, data }) => {
+const allStudent = ({ students, page, pageStudent, data }) => {
   // console.log(Number(data[0]?.id))
-  console.log(pages)
+  console.log(page)
 
   const dispatch = useDispatch();
-  const [pagesAll, setPagesAll] = useState(pages)
+  const [pagesAll, setPagesAll] = useState(page)
 
   useEffect(() => {
     dispatch(getAllStudent())

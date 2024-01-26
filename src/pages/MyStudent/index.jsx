@@ -18,6 +18,7 @@ import { selectMyStudent } from './selectors';
 import classes from './style.module.scss';
 import { Box, Button, Modal, Stack, Typography } from '@mui/material';
 import { selectData } from '@pages/Login/selectors';
+import { Link } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -51,6 +52,7 @@ const MyStudent = ({ myStudents, data }) => {
         dispatch(getMyStudents(data[0]?.id));
       })
     );
+    setToggle(!toggle)
   };
 
   useEffect(() => {
@@ -93,6 +95,9 @@ const MyStudent = ({ myStudents, data }) => {
                       <Button onClick={() => handleModal(data?.id)}>
                         <DeleteIcon style={{ color: '#B80000' }} />
                       </Button>
+                      <Link to={`/student/${data?.id}`}>
+                        <Button variant='contained'> Edit</Button>
+                      </Link>
                     </TableCell>
                   </TableRow>
                 );
