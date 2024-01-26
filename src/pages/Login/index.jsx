@@ -24,18 +24,17 @@ import { selectLogin } from './selectors';
 
 import PropTypes from 'prop-types';
 
-
 const defaultTheme = createTheme();
 
-const Login = ({login}) => {
+const Login = ({ login }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() =>{
+  useEffect(() => {
     if (login) {
-      navigate("/");
+      navigate('/my-student');
     }
-  },[login])
+  }, [login, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,11 +49,11 @@ const Login = ({login}) => {
       toast.error('Invalid email');
     } else if (!dataUser.password) {
       toast.error('Password cannot be empty');
-    }else {
+    } else {
       dispatch(
         doLoginAction(dataUser, () => {
           toast.success('Login success');
-          navigate('/');
+          navigate('/my-student');
         })
       );
     }
@@ -75,7 +74,8 @@ const Login = ({login}) => {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://media.istockphoto.com/id/1415740411/photo/empty-classroom.webp?b=1&s=170667a&w=0&k=20&c=K6V85ko0dwzThxpPRW942vz30r_Mpl6iL_zMAKVxid8=)',
+            backgroundImage:
+              'url(https://media.istockphoto.com/id/1415740411/photo/empty-classroom.webp?b=1&s=170667a&w=0&k=20&c=K6V85ko0dwzThxpPRW942vz30r_Mpl6iL_zMAKVxid8=)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
             backgroundSize: 'cover',
@@ -136,10 +136,10 @@ const Login = ({login}) => {
       <Toaster />
     </ThemeProvider>
   );
-}
+};
 
 Login.propTypes = {
-  login: PropTypes.bool
+  login: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({

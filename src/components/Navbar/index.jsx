@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { connect,useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setLocale, setTheme } from '@containers/App/actions';
 
 import * as React from 'react';
@@ -30,12 +30,10 @@ import { FormattedMessage } from 'react-intl';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
-import classes from './style.module.scss';
-import logo from '../../assets/logo.png';
 
-import { selectLogin, selectData } from '@pages/Login/selectors';
-import { createStructuredSelector } from 'reselect';
 import { setData, setLogin } from '@pages/Login/actions';
+import logo from '../../assets/logo.png';
+import classes from './style.module.scss';
 
 const drawerWidth = 240;
 
@@ -125,16 +123,7 @@ const Navbar = ({ locale, theme, children }) => {
           </ListItemButton>
         </ListItem>
       </List>
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton onClick={() => toEnrollStudent()}>
-            <ListItemIcon>
-              <PersonAddIcon />
-            </ListItemIcon>
-            <FormattedMessage id="nav_my_student" />
-          </ListItemButton>
-        </ListItem>
-      </List>{' '}
+
       <Link to="/enroll">
         <List>
           <ListItem disablePadding>
@@ -263,7 +252,5 @@ Navbar.propTypes = {
   theme: PropTypes.string,
   children: PropTypes.element.isRequired,
 };
-
-
 
 export default Navbar;

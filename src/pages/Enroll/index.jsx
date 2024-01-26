@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 import { FormattedMessage } from 'react-intl';
 import Typography from '@mui/material/Typography';
@@ -8,14 +8,17 @@ import { useForm } from 'react-hook-form';
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { selectData } from '@pages/Login/selectors';
+import { createStructuredSelector } from 'reselect';
 
 import { createStudent } from './actions';
 import classes from './style.module.scss';
 
-const Enroll = () => {
+const Enroll = ({ login }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  console.log(login);
   const {
     register,
     formState: { errors },
@@ -28,7 +31,7 @@ const Enroll = () => {
       createStudent(
         {
           id: uuidv4,
-          teacher_id: '1',
+          teacher_id: login[0].id,
           name: data.name,
           class: data.class,
           major: data.major,
@@ -36,7 +39,7 @@ const Enroll = () => {
         },
         () => {
           reset();
-          navigate('/');
+          navigate('/my-student');
         }
       )
     );
@@ -184,4 +187,12 @@ const Enroll = () => {
   );
 };
 
-export default Enroll;
+Enroll.propTypes = {
+  login: PropTypes.array,
+};
+
+const mapStateToProps = createStructuredSelector({
+  login: selectData,
+});
+
+export default connect(mapStateToProps)(Enroll);
