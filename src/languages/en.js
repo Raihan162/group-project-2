@@ -13,5 +13,10 @@ export default {
   table_class: "Class",
   table_major: 'Major',
   table_teacher: "Teacher",
-  table_none_student: "Student doesn't exist"
+  table_none_student: "Student doesn't exist",
+  table_action: "Action",
+
+  modal_delete_title: 'Are you sure you want to delete this student?',
+  modal_yes: 'Yes',
+  modal_no: 'No'
 };

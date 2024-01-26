@@ -18,6 +18,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
@@ -85,6 +86,10 @@ const Navbar = ({ locale, theme, children }) => {
     navigate('/my-student')
   }
 
+  const toEnrollStudent = () => {
+    navigate('/enroll-student')
+  }
+
   const drawer = (
     <div>
       <Toolbar />
@@ -106,6 +111,16 @@ const Navbar = ({ locale, theme, children }) => {
               <PeopleAltIcon />
             </ListItemIcon>
             <ListItemText primary="My Student" />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => toEnrollStudent()}>
+            <ListItemIcon>
+              <PersonAddIcon />
+            </ListItemIcon>
+            <ListItemText primary="Enroll Student" />
           </ListItemButton>
         </ListItem>
       </List>

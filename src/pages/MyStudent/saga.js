@@ -1,14 +1,25 @@
 import { setLoading } from "@containers/App/actions";
-import { getMyStudent } from "@domain/api";
+import { deleteMyStudent, getMyStudent } from "@domain/api";
 import { call, put, takeLatest } from "redux-saga/effects";
-import { GET_MY_STUDENT } from "./constants";
+import { GET_MY_STUDENT, SET_DELETE_MY_STUDENT } from "./constants";
 import { setMyStudent } from "./actions";
 
-function* getMyStudentSaga() {
+function* getMyStudentSaga({ id }) {
     yield put(setLoading(true))
     try {
-        const response = yield call(getMyStudent, '2')
+        const response = yield call(getMyStudent, id)
         yield put(setMyStudent(response))
+    } catch (error) {
+        console.log(error)
+    }
+    yield put(setLoading(false))
+}
+
+function* deleteStudentSaga({ id }) {
+    yield put(setLoading(true))
+    try {
+        // console.log(id)
+        yield call(deleteMyStudent, id)
     } catch (error) {
         console.log(error)
     }
@@ -17,4 +28,5 @@ function* getMyStudentSaga() {
 
 export default function* myStudentSaga() {
     yield takeLatest(GET_MY_STUDENT, getMyStudentSaga)
+    yield takeLatest(SET_DELETE_MY_STUDENT, deleteStudentSaga)
 }

@@ -34,6 +34,14 @@ export const getStudents = () => {
   return callAPI(urls.getStudents, 'GET')
 }
 
+export const getStudentsPerPage = (page) => {
+  return callAPI(urls.getStudents, 'GET', {}, { _page: page })
+}
+
 export const getMyStudent = (id) => {
   return callAPI(urls.getStudents, 'GET', {}, { teacher_id: id })
+}
+
+export const deleteMyStudent = (id) => {
+  return callAPI(`${urls.getStudents}/${id}`, 'DELETE')
 }
