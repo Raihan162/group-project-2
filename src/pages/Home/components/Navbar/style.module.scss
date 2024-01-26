@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  height: 80px;
+  margin-top: 20px;
+
+  button {
+    margin-right: 40px;
+    color: white;
+    height: fit-content;
+  }
+}

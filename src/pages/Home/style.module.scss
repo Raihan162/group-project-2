@@ -1,1 +1,38 @@
 @import '@styles/base';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5859593837535014) 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.6223739495798319) 100%
+    ),
+    url('../../assets/background.jpg');
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  img {
+    margin-top: 150px;
+
+    width: 200px;
+    @include apply-at-lg-size {
+      width: 500px;
+    }
+  }
+
+  h1 {
+    margin-top: 50px;
+    color: white;
+    font-size: 40px;
+  }
+}

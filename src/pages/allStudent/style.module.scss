@@ -1,0 +1,7 @@
+@import '@styles/base';
+
+.allStudent{
+    @include directionY;
+    align-items: center;
+    gap: 20px;
+}
