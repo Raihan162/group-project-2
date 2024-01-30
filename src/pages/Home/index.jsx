@@ -4,7 +4,11 @@ import NavHome from './components/Navbar';
 import classes from './style.module.scss';
 import banner from '../../assets/banner.png';
 
-const Home = () => (
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectData } from '@pages/Login/selectors';
+
+const Home = ({dataLogin}) => (
   <div>
     <NavHome />
     <Box className={classes.container}>
@@ -22,4 +26,8 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+const mapStateToProps = createStructuredSelector({
+  dataLogin: selectData,
+});
+
+export default connect(mapStateToProps)(Home);
